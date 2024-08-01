@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focused Fitness Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .article-section {
+            padding-top: 80px;
+            margin: 20px 0;
+        }
+
+        .article-section .card {
+            margin-bottom: 20px;
+        }
+
+        .article-section .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Contributors Section */
+        .contributors-section {
+            padding-top: 40px;
+            margin: 40px 0;
+        }
+
+        .contributors-section h2{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+        }
+
+        .contributors-section .card {
+            margin-bottom: 20px;
+        }
+
+        .contributors-section .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding-top: 40px;
+            margin: 40px 0;
+        }
+
+        .video-section h2{
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 80%;
+        }
+
+        .video-section .card {
+            margin-bottom: 20px;
+        }
+
+        .video-section iframe {
+            width: 100%;
+            height: 315px;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .newsletter-section form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .newsletter-section input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .newsletter-section button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .newsletter-section button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Base styles for sections */
+        .article-section, .contributors-section, .video-section, .newsletter-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        /* Class to apply when element is in view */
+        .in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Modal Background */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black with opacity */
+            opacity: 0;
+            visibility: hidden; /* Hidden initially */
+            transition: opacity 0.6s ease-out, visibility 0.6s ease-out; /* Smooth fade-in */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            text-align: justify;
+            margin: 15% auto; /* Center the modal horizontally */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%; /* Could be more or less, depending on screen size */
+            max-height: 80vh; /* Max height relative to viewport height */
+            overflow-y: auto; /* Scroll if content exceeds max height */
+            transform: translateY(-50px); /* Start slightly above the viewport */
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Smooth slide-in and fade-in */
+            opacity: 0;
+        }
+
+        /* Show the modal */
+        .modal.show {
+            display: block;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0); /* Move to its final position */
+            opacity: 1;
+        }
+
+        /* Close Button */
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="myHeader">
+        <div class="navbar-brand" id="navbar-brand">
+            <a href="mainpage.html">Fitness</a>
+            <button class="navbar-toggle" onclick="toggleNavbar()">&#9776;</button>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+            <a href="#about">About Us</a>
+            <a href="#workout">Workout Plans</a>
+            <a href="#nutrition">Nutrition Guide</a>
+            <a href="#wellness">Wellness Tips</a>
+            <a href="#transformation">Transformation Stories</a>
+            <a href="blog.html">Blog</a>
+            <a href="getinvolve.html">Get Involved</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Latest Trends, Research, and Tips in Fitness</h1>
+            <p class="lead">Stay updated with the latest insights and expert advice in the world of fitness. Our blog covers everything from cutting-edge research to practical tips for a healthier lifestyle.</p>
+        </div>
+
+        <!-- Article Section -->
+        <div class="article-section">
+            <div class="row">
+                <!-- Article 1 -->
+                <div class="boxes">
+                    <div class="card">
+                        <img src="images/hiit.jpg" alt="Fitness Trend 1">
+                        <div class="card-body">
+                            <h2 class="card-title">The Rise of HIIT Workouts</h2>
+                            <p class="card-text">High-Intensity Interval Training (HIIT) has taken the fitness world by storm. Learn why this time-efficient workout method is gaining popularity and how you can incorporate it into your routine.</p>
+                            <a href="#" class="btn-primary" data-title="The Rise of HIIT Workouts" data-content="High-Intensity Interval Training (HIIT) has revolutionized the fitness world due to its efficiency and effectiveness. This training method involves short bursts of intense exercise followed by brief periods of rest or lower-intensity exercise. HIIT workouts are designed to maximize calorie burn and boost metabolic rate even after the workout is complete. One of the main reasons for HIIT's popularity is its time efficiency; sessions can be completed in as little as 20-30 minutes while still delivering significant fitness benefits. HIIT is also highly adaptable, making it suitable for various fitness levels and can be customized to target different fitness goals. This approach not only improves cardiovascular health but also enhances muscle endurance and strength. Research shows that HIIT can be as effective, if not more so, than traditional endurance training. As fitness enthusiasts and professionals continue to explore its benefits, HIIT remains a top choice for those looking to achieve maximum results in minimal time.">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="boxes">
+                    <div class="card">
+                        <img src="images/nuitritionandexercise.jpg" alt="Fitness Research 1">
+                        <div class="card-body">
+                            <h2 class="card-title">New Research on Nutrition and Exercise</h2>
+                            <p class="card-text">Recent studies have shed new light on how nutrition impacts workout performance. Discover the latest findings and how they can help you optimize your fitness goals.</p>
+                            <a href="#" class="btn-primary" data-title="New Research on Nutrition and Exercise" data-content="Recent studies have provided new insights into the relationship between nutrition and exercise, revealing the profound impact that diet can have on workout performance and overall fitness outcomes. One of the key findings is the importance of timing your nutrition around workouts. Consuming a balanced meal with carbohydrates and protein before and after exercise can significantly enhance muscle recovery and energy levels. Additionally, research highlights the role of specific nutrients like omega-3 fatty acids and antioxidants in reducing exercise-induced inflammation and improving recovery times. The integration of proper nutrition with exercise regimens has been shown to optimize body composition, improve endurance, and support overall health. Athletes and fitness enthusiasts are increasingly paying attention to nutrient timing, macro ratios, and supplementation strategies to fine-tune their performance and achieve their fitness goals more effectively. The growing body of evidence underscores the importance of a well-rounded approach that combines both diet and exercise for optimal health and performance.">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="boxes">
+                    <div class="card">
+                        <img src="images/fitnessjourney.jpg" alt="Fitness Tips 1">
+                        <div class="card-body">
+                            <h2 class="card-title">Top 10 Fitness Tips for Beginners</h2>
+                            <p class="card-text">Starting a new fitness journey can be overwhelming. Here are ten essential tips to help beginners get started and stay motivated.</p>
+                            <a href="#" class="btn-primary" data-title="Top 10 Fitness Tips for Beginners" data-content="Starting a fitness journey can be both exciting and overwhelming for beginners. To help you navigate this path, here are ten essential tips to get started and stay motivated. First, set clear, achievable goals that align with your personal fitness aspirations. Whether it's weight loss, muscle gain, or improved endurance, having specific goals will keep you focused. Next, create a balanced workout routine that includes cardiovascular exercises, strength training, and flexibility workouts. Consistency is key, so aim to exercise regularly and progressively increase the intensity of your workouts. It’s also crucial to prioritize proper nutrition, including a mix of proteins, carbohydrates, and healthy fats to fuel your body. Rest and recovery are just as important as workouts, so ensure you get adequate sleep and incorporate rest days into your routine. Stay hydrated, track your progress, and be patient with yourself. Fitness is a journey, and celebrating small victories along the way will keep you motivated and committed to your long-term goals.">Read More</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Featured Contributors -->
+        <div class="contributors-section">
+            <h2>Featured Contributions from Fitness Professionals</h2>
+            <div class="row">
+                <!-- Contributor 1 -->
+                <div class="boxes">
+                    <div class="card">
+                        <img src="images/robinmiller.jpg" alt="Contributor 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Robin Miller</h3>
+                            <p class="card-text">Robin Miller is a renowned nutritionist with over 15 years of experience in the field. Her latest article discusses the importance of balanced nutrition in achieving fitness goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contributor 2 -->
+                <div class="boxes">
+                    <div class="card">
+                        <img src="images/mike.jpg" alt="Contributor 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Mike O'Hearn</h3>
+                            <p class="card-text">Mike O'Hearn is a certified personal trainer specializing in strength training. His article provides insights into effective strength training techniques for all fitness levels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <h2>Watch Our Latest Fitness Videos</h2>
+            <div class="row">
+                <div class="boxes">
+                    <div class="card">
+                        <video controls width="100%" height="315"> 
+                            <source src="videos/effectiveworkout.mp4" type="video/mp4">
+                            <source src="videos/effectiveworkout.ogg" type="video/ogg">
+                        </video>
+                        <div class="card-body">
+                            <h3 class="card-title">Effective Workout Routines</h3>
+                            <p class="card-text">Watch our video to learn about effective workout routines that can help you reach your fitness goals.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxes">
+                    <div class="card">
+                        <video controls width="100%" height="315"> 
+                            <source src="videos/nutritiontip.mp4" type="video/mp4">
+                            <source src="videos/nutritiontip.ogg" type="video/ogg">
+                        </video>
+                        <div class="card-body">
+                            <h3 class="card-title">Nutrition Tips for a Healthier Life</h3>
+                            <p class="card-text">This video provides valuable nutrition tips that can help you maintain a balanced diet and improve your overall health.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="newsletter-section">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletter-form" action="#" method="post">
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </div>
+    </div>
+     
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body" class="modal-body">
+                <!-- Dynamic content will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Structure for Subscription Success -->
+    <div id="subscription-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body" class="modal-body">
+                <h2>Subscription Successful!</h2>
+                <p>Thank you for subscribing to our newsletter. You'll receive the latest updates directly in your inbox.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Focused Fitness Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll('.article-section, .contributors-section, .video-section, .newsletter-section');
+
+            const isInView = (element) => {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top < (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.bottom > 0 &&
+                    rect.left < (window.innerWidth || document.documentElement.clientWidth) &&
+                    rect.right > 0
+                );
+            };
+
+            const handleScroll = () => {
+                sections.forEach(section => {
+                    if (isInView(section)) {
+                        section.classList.add('in-view');
+                    }
+                });
+            };
+
+            // Initial check
+            handleScroll();
+
+            // Check on scroll
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        function toggleNavbar() {
+            var links = document.getElementById("navbar-links");
+            if (links.classList.contains("expanded")) {
+                links.classList.remove("expanded");
+            } else {
+                links.classList.add("expanded");
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const modal = document.getElementById('modal');
+            const modalBody = document.getElementById('modal-body');
+            const closeBtn = document.querySelector('.close-btn');
+
+            document.querySelectorAll('.card .btn-primary').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+
+                    // Extract detailed content from data attributes
+                    const title = button.getAttribute('data-title');
+                    const content = button.getAttribute('data-content');
+
+                    // Construct detailed content
+                    const detailedContent = `
+                        <h2>${title}</h2>
+                        <p>${content}</p>
+                    `;
+
+                    // Set modal content
+                    modalBody.innerHTML = detailedContent;
+
+                    // Show modal with animation
+                    modal.style.display = 'block'; // Ensure modal is displayed
+                    setTimeout(() => {
+                        modal.style.opacity = '1';
+                        modal.style.visibility = 'visible';
+                        document.querySelector('.modal-content').style.transform = 'translateY(0)';
+                        document.querySelector('.modal-content').style.opacity = '1';
+                    }, 10); // Slight delay to trigger CSS transitions
+                });
+            });
+
+            // Close modal
+            const closeModal = () => {
+                document.querySelector('.modal-content').style.transform = 'translateY(-50px)'; // Slide out to the top
+                document.querySelector('.modal-content').style.opacity = '0';
+                modal.style.opacity = '0';
+                modal.style.visibility = 'hidden';
+                setTimeout(() => {
+                    modal.style.display = 'none'; // Hide after transition
+                }, 600); // Match the duration of the transform transition
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const subscriptionForm = document.getElementById('newsletter-form');
+            const subscriptionModal = document.getElementById('subscription-modal');
+            const closeBtn = subscriptionModal.querySelector('.close-btn');
+
+            // Handle form submission
+            subscriptionForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent actual form submission
+
+                // Show modal with subscription success message
+                subscriptionModal.style.display = 'block';
+                setTimeout(() => {
+                    subscriptionModal.classList.add('show'); // Apply 'show' class to trigger CSS transitions
+                }, 10);
+            });
+
+            // Close modal
+            const closeModal = () => {
+                subscriptionModal.classList.remove('show'); // Remove 'show' class to trigger closing transition
+                setTimeout(() => {
+                    subscriptionModal.style.display = 'none';
+                }, 600); // Match the duration of the transform transition
+            };
+
+            closeBtn.addEventListener('click', closeModal);
+
+            window.addEventListener('click', (event) => {
+                if (event.target === subscriptionModal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

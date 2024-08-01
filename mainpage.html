@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focused Fitness Experience</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="myHeader">
+        <div class="navbar-brand" id="navbar-brand">
+            <a href="mainpage.html">Fitness</a>
+            <button class="navbar-toggle" onclick="toggleNavbar()">&#9776;</button>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+            <a href="#about">About Us</a>
+            <a href="#workout">Workout Plans</a>
+            <a href="#nutrition">Nutrition Guide</a>
+            <a href="#wellness">Wellness Tips</a>
+            <a href="#transformation">Transformation Stories</a>
+            <a href="blog.html">Blog</a>
+            <a href="getinvolve.html">Get Involved</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-5">
+        <!-- Welcome Section -->
+        <div class="jumbotron">
+            <h1 class="display-4">Welcome to Focused Fitness Experience!</h1>
+            <p class="lead">Your journey to a healthier life starts here. Explore our workout plans, nutrition guides, and wellness tips.</p>
+            <a class="btn btn-primary btn-lg" href="#get-started" role="button">Get Started</a>
+        </div>
+
+        <!-- Key Features Section -->
+        <div class="row">
+            <div class="boxes">
+                <div class="card">
+                    <img src="workout.jpg" class="card-img-top" alt="Workout Plans">
+                    <div class="card-body">
+                        <h5 class="card-title">Workout Plans</h5>
+                        <p class="card-text">Tailored routines for all fitness levels.</p>
+                        <a href="#workout" class="btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes">
+                <div class="card">
+                    <img src="nutrition.jpg" class="card-img-top" alt="Nutrition Guide">
+                    <div class="card-body">
+                        <h5 class="card-title">Nutrition Guide</h5>
+                        <p class="card-text">Healthy eating tips and meal plans.</p>
+                        <a href="#nutrition" class="btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="boxes">
+                <div class="card">
+                    <img src="wellness.jpg" class="card-img-top" alt="Wellness Tips">
+                    <div class="card-body">
+                        <h5 class="card-title">Wellness Tips</h5>
+                        <p class="card-text">Advice on mental and physical well-being.</p>
+                        <a href="#wellness" class="btn-primary">Discover</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Focused Fitness Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        function toggleNavbar() {
+            var links = document.getElementById("navbar-links");
+            if (links.classList.contains("expanded")) {
+                links.classList.remove("expanded");
+            } else {
+                links.classList.add("expanded");
+            }
+        }
+    </script>
+</body>
+</html>

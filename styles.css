@@ -1,0 +1,224 @@
+/* Reset some basic elements */
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #ffffff;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    background-color: #343a40;
+    padding: 10px;
+    color: white;
+    overflow: visible;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    display: flex;
+    justify-content: space-between; /* Aligns brand name left and button right */
+    align-items: center;
+    font-size: 1.25em;
+    width: 100%;
+}
+
+.navbar-brand a {
+    color: #fff; /* Ensure the link color is visible */
+    text-decoration: none; /* Remove underline if needed */
+}
+
+.navbar-toggle {
+    font-size: 1em;
+    background: none;
+    border: 1px solid #474c51;
+    color: #9da0a3;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.navbar-links {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0; /* Start with height of 0 */
+    transition: max-height 0.5s ease-out;
+}
+
+.navbar-links a {
+    color: #9da0a3;
+    text-decoration: none;
+    text-align: left;
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+
+.navbar-links a:hover {
+    color: #ffffff;
+}
+
+.navbar-toggle {
+    font-size: 1em;
+    background: none;
+    border: 1px solid #474c51;
+    color: #9da0a3;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+/* Expanded state */
+.navbar-links.expanded {
+    max-height: 700px;
+    transition: max-height 0.5s ease-in;
+}
+
+/* Responsive Styles */
+@media (min-width: 1250px) {
+    .navbar {
+        flex-direction: row;
+        align-items: center;
+        overflow: visible;
+    }
+
+    .navbar-links {
+        flex-direction: row;
+        max-height: none; 
+        display: flex;
+        overflow: visible;
+    }
+
+    .navbar-links a {
+        padding: 10px 20px;
+    }
+
+    .navbar-links a:hover {
+        color: white;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+}
+/* Jumbotron styling */
+.jumbotron {
+    background-color: #e9ecef;
+    color: #000000;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    max-width: 80%;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.lead {
+    padding-bottom: 40px;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 82%;
+}
+
+.jumbotron p {
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Key Features Section */
+.container {
+    margin-top: 50px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.boxes {
+    flex: 0 0 30%;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px); /* Float up by 10px */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow */
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+/* Footer styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    margin-top: 50px;
+}

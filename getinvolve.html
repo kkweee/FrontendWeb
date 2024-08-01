@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - Focused Fitness Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #007bff;
+        }
+
+        /* Content Section */
+        .content-section {
+            margin-bottom: 40px;
+        }
+
+        .content-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .content-section p {
+            margin-bottom: 15px;
+        }
+
+        /* Join the Community Section */
+        .community-section {
+            background-color: #e9ecef;
+            padding: 40px;
+            border-radius: 5px;
+        }
+
+        /* Challenges Section */
+        .challenges-section {
+            margin-top: 40px;
+            background-color: #f8f9fa; /* Light background for better separation */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .challenges-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .challenge-list {
+            list-style-type: disc; /* Change to disc for better readability */
+            padding-left: 20px;
+        }
+
+        .challenge-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Contribution Section */
+        .contribution-section {
+            margin-top: 40px;
+            background-color: #f8f9fa; /* Light background for better separation */
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .contribution-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .contribution-list {
+            list-style-type: disc; /* Change to disc for better readability */
+            padding-left: 20px;
+        }
+
+        .contribution-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Get Involved Form Layout */
+        .form-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 40px;
+        }
+
+        .get-involved-form {
+            background-color: #fff;
+            padding: 30px;
+            width: 80%;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        .get-involved-form h2 {
+            margin-bottom: 20px;
+        }
+
+        .get-involved-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .get-involved-form input,
+        .get-involved-form select,
+        .get-involved-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .get-involved-form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        .get-involved-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Toggle Details Button */
+        .toggle-details {
+            background: none;
+            border: none;
+            color: #007bff;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 10px;
+            display: block;
+            transition: color 1s ease;
+            position: relative;
+        }
+
+        /* Container for the details section */
+        .details-container {
+            overflow: hidden;
+            transition: max-height 1s ease-out;
+            max-height: 0; /* Initially hidden */
+        }
+
+        /* When details are shown */
+        .details-container.details-shown {
+            max-height: 1000px; /* Adjust this value based on your content height */
+        }
+
+        /* Arrow Rotation */
+        .toggle-details span {
+            display: inline-block;
+            transition: transform 1s ease;
+        }
+
+        /* Arrow pointing down */
+        .details-hidden .toggle-details span {
+            transform: rotate(0deg);
+        }
+
+        /* Arrow pointing up */
+        .details-shown .toggle-details span {
+            transform: rotate(180deg);
+        }
+
+        /* Form Wrapper */
+        .form-wrapper {
+            display: flex;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+
+        /* Image and Description */
+        .form-image {
+            width: 40%;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        .form-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .form-description {
+            margin-top: 20px;
+        }
+
+        .form-description h3 {
+            color: #007bff;
+        }
+
+        .form-description p {
+            margin-top: 10px;
+        }
+
+        .form-information {
+            margin-top: 20px;
+        }
+
+        .form-information h3 {
+            color: #007bff;
+        }
+
+        .form-information p {
+            margin-top: 10px;
+        }
+
+        /* Get Involved Form Layout */
+        .form-container {
+            width: 60%;
+            padding-top: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="myHeader">
+        <div class="navbar-brand" id="navbar-brand">
+            <a href="mainpage.html">Fitness</a>
+            <button class="navbar-toggle" onclick="toggleNavbar()">&#9776;</button>
+        </div>
+        <div class="navbar-links" id="navbar-links">
+            <a href="#about">About Us</a>
+            <a href="#workout">Workout Plans</a>
+            <a href="#nutrition">Nutrition Guide</a>
+            <a href="#wellness">Wellness Tips</a>
+            <a href="#transformation">Transformation Stories</a>
+            <a href="blog.html">Blog</a>
+            <a href="getinvolve.html">Get Involved</a>
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Join the Community Section -->
+        <div class="content-section community-section">
+            <h1>Join the Focused Fitness Community</h1>
+            <p>At Focused Fitness Experience, we're more than just a fitness platform—we're a community. By joining us, you gain access to a supportive network of like-minded individuals who share your passion for fitness and well-being. Our community is all about empowering each other to achieve our goals, whether that means getting stronger, healthier, or simply feeling better every day.</p>
+            <p>When you join our community, you can participate in discussions, share your progress, ask for advice, and celebrate your successes with others who understand the journey you're on. We're here to motivate each other, share tips, and most importantly, have fun along the way.</p>
+        </div>
+
+        <!-- Challenges Section -->
+        <div class="content-section challenges-section">
+            <h2>Participate in Our Fitness Challenges</h2>
+            <p>Looking for a way to stay motivated and push yourself further? Our fitness challenges are designed to keep you engaged and help you reach your fitness goals faster. From monthly workout challenges to nutrition-focused goals, there's something for everyone.</p>
+            
+            <div id="challenges-details" class="details-container details-hidden">
+                <ul class="challenge-list">
+                    <li><strong>30-Day Workout Challenge:</strong> Commit to a daily workout routine for 30 days and watch your fitness level soar!</li>
+                    <li><strong>Healthy Eating Challenge:</strong> Track your meals and focus on incorporating more whole foods and balanced nutrition into your diet.</li>
+                    <li><strong>Step Count Challenge:</strong> Aim to hit a certain number of steps each day and compete with others in the community for the top spot.</li>
+                    <li><strong>Hydration Challenge:</strong> Make hydration a priority by setting daily water intake goals and sticking to them.</li>
+                    <li><strong>Meditation Challenge:</strong> Focus on your mental health by committing to a daily meditation practice for a month.</li>
+                </ul>
+                <p>Participating in these challenges is a great way to stay accountable and make fitness a fun and integral part of your life. Plus, you can share your progress and results with the community to inspire others and stay motivated.</p>
+            </div>
+
+            <button class="toggle-details" onclick="toggleDetails('challenges-details')">
+                <span id="challenges-details-arrow">&#9660;</span> <!-- Down arrow -->
+            </button>
+        </div>
+
+        <!-- Contribution Section -->
+        <div class="content-section contribution-section">
+            <h2>Contribute to the Focused Fitness Experience</h2>
+            <p>We believe in the power of shared knowledge and experience. That's why we encourage our community members to contribute to our website. Whether you're a fitness professional, a nutrition expert, or simply someone who loves to stay active, your insights and experiences can help others on their fitness journeys.</p>
+            
+            <div id="contribution-details" class="details-container details-hidden">
+                <ul class="contribution-list">
+                    <li><strong>Write for Us:</strong> Share your fitness tips, success stories, or research with our community by contributing articles to our blog.</li>
+                    <li><strong>Create Workouts:</strong> If you have a unique workout routine that has worked for you, share it with others by creating a workout plan that we can feature on our site.</li>
+                    <li><strong>Host Webinars:</strong> Have expertise in a particular area of fitness or wellness? Host a webinar to educate and engage with our community.</li>
+                    <li><strong>Share Recipes:</strong> If you're passionate about healthy eating, contribute your favorite recipes to our nutrition guide.</li>
+                    <li><strong>Volunteer:</strong> Help us manage community events, challenges, and online discussions. Your support makes a difference!</li>
+                </ul>
+                <p>To get started, fill out the form below with your details and how you’d like to contribute. We’ll get back to you with more information on how you can make a difference.</p>
+            </div>
+
+            <button class="toggle-details" onclick="toggleDetails('contribution-details')">
+                <span id="contribution-details-arrow">&#9660;</span> <!-- Down arrow -->
+            </button>
+        </div>
+
+        <!-- Get Involved Form -->
+        <div class="form-wrapper">
+            <div class="form-image card">
+                <img src="images/joinus.jpg" alt="Join Us" />
+                <div class="form-description">
+                    <h3>Come and Join Us!</h3>
+                    <p>Become a part of our vibrant community. Whether you want to share your expertise or learn from others, there are countless ways to get involved and make an impact.</p>
+                </div>
+                <div class="form-information">
+                    <h3>Reach Out to Us</h3>
+                    <p>Have a question about fitness? Or about our approach?</p>
+                    <p>Give us a call at +603-3322 6655 or reach out to us <a href="mailto: fitness@gmail.com">here</a>.</p>
+                </div>
+            </div>
+            <div class="form-container">
+                <div class="get-involved-form">
+                    <h2>Get Involved</h2>
+                    <form action="submit_form.php" method="post">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" required>
+
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="contributionType">How Would You Like to Contribute?</label>
+                        <select id="contributionType" name="contributionType" required>
+                            <option value="write">Write for Us</option>
+                            <option value="workouts">Create Workouts</option>
+                            <option value="webinars">Host Webinars</option>
+                            <option value="recipes">Share Recipes</option>
+                            <option value="volunteer">Volunteer</option>
+                        </select>
+
+                        <label for="message">Tell Us More About How You Want to Get Involved:</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+     
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Focused Fitness Experience. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // When the user scrolls the page, execute myFunction
+        window.onscroll = function() {myFunction()};
+
+        // Get the header
+        var header = document.getElementById("myHeader");
+
+        // Get the offset position of the navbar
+        var sticky = header.offsetTop;
+
+        // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                header.classList.add("sticky");
+            } else {
+                header.classList.remove("sticky");
+            }
+        }
+
+        function toggleNavbar() {
+            var links = document.getElementById("navbar-links");
+            if (links.classList.contains("expanded")) {
+                links.classList.remove("expanded");
+            } else {
+                links.classList.add("expanded");
+            }
+        }
+
+        function toggleDetails(sectionId) {
+            const details = document.getElementById(sectionId);
+            const arrow = document.getElementById(sectionId + '-arrow');
+            
+            if (details.classList.contains('details-hidden')) {
+                details.classList.remove('details-hidden');
+                details.classList.add('details-shown');
+                arrow.innerHTML = '&#9650;'; // Up arrow
+            } else {
+                details.classList.remove('details-shown');
+                details.classList.add('details-hidden');
+                arrow.innerHTML = '&#9660;'; // Down arrow
+            }
+        }
+
+    </script>
+</body>
+</html>
